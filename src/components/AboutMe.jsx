@@ -5,8 +5,6 @@ const AboutMe = () => {
   const risaAudioRef = useRef(null); // Referencia para el audio de la risa
   const sectionRef = useRef(null); // Referencia para la sección completa
   const luffyGifRef = useRef(null); // Nueva referencia para el GIF de Luffy
-  // Eliminado el estado para los rayos de Haki
-  // const [hakiRays, setHakiRays] = useState([]); 
   const [luffyPowerAnimation, setLuffyPowerAnimation] = useState(''); // Estado para la animación de poder de Luffy
   const [sectionShakeAnimation, setSectionShakeAnimation] = useState(''); // Estado para la animación de temblor de la sección
   const [showAnimatedLuffy, setShowAnimatedLuffy] = useState(false); // Estado para controlar la visibilidad del Luffy animado
@@ -153,32 +151,11 @@ const AboutMe = () => {
 
         </div>
 
-        {/* Eliminado el renderizado de los rayos de Haki */}
-        {/* {hakiRays.map(ray => (
-          <img
-            key={ray.id}
-            src="/images/rayo.png"
-            alt="Rayo Haki"
-            className="absolute object-contain animate-haki-agitate z-40"
-            style={{
-              top: ray.top,
-              left: ray.left,
-              width: ray.width,
-              height: ray.height,
-              transform: `translate(-50%, -50%) rotate(${ray.initialRotation}deg)`,
-              animationDelay: ray.delay,
-              '--shake-direction': ray.shakeDirection,
-            }}
-          />
-        ))} */}
-
         {/* Separador inferior - Usando bg-wood-separator */}
         <div className="w-full h-8 bg-wood-separator absolute bottom-0 left-0"></div>
       </section>
 
       <style>{`
-        /* Eliminado @keyframes haki-agitate */
-
         @keyframes luffy-power-release {
           0% { filter: brightness(1); }
           5% { filter: brightness(2.5) drop-shadow(0 0 35px yellow) drop-shadow(0 0 60px orange); }
@@ -216,19 +193,19 @@ const AboutMe = () => {
 
         @keyframes section-tremble {
           0% { transform: translate(0, 0); }
-          10% { transform: translate(-3px, -3px); }
-          20% { transform: translate(3px, 3px); }
-          30% { transform: translate(-3px, 3px); }
-          40% { transform: translate(3px, -3px); }
-          50% { transform: translate(-3px, -3px); }
-          60% { transform: translate(3px, 3px); }
-          70% { transform: translate(-3px, 3px); }
-          80% { transform: translate(3px, -3px); }
-          90% { transform: translate(-3px, -3px); }
+          10% { transform: translate(-1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
+          20% { transform: translate(1px, 1px); }  /* CAMBIO CLAVE: Reducido a 1px */
+          30% { transform: translate(-1px, 1px); } /* CAMBIO CLAVE: Reducido a 1px */
+          40% { transform: translate(1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
+          50% { transform: translate(-1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
+          60% { transform: translate(1px, 1px); }  /* CAMBIO CLAVE: Reducido a 1px */
+          70% { transform: translate(-1px, 1px); } /* CAMBIO CLAVE: Reducido a 1px */
+          80% { transform: translate(1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
+          90% { transform: translate(-1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
           100% { transform: translate(0, 0); }
         }
         .animate-section-tremble {
-          animation: section-tremble 0.1s infinite;
+          animation: section-tremble 0.2s infinite; /* CAMBIO CLAVE: Duración de 0.2s */
         }
       `}</style>
     </div>

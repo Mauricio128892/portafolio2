@@ -38,7 +38,7 @@ const DevBlogCard = ({ blog }) => {
       try {
         // Crea un nuevo Tone.Player para cada tarjeta
         const player = new Tone.Player(`/audio/${blog.audioName}`).toDestination();
-        player.volume.value = -10; // Ajusta el volumen si es necesario
+        player.volume.value = -15; // Ajusta el volumen si es necesario
         player.fadeIn = 0.1;
         player.fadeOut = 0.5;
 

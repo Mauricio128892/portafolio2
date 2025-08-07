@@ -14,7 +14,7 @@ const Footer = () => {
       try {
         // Crea un nuevo Tone.Player para cargar el archivo MP3
         const player = new Tone.Player("/audio/song.mp3").toDestination();
-        player.volume.value = -10; // Ajusta el volumen (en decibelios)
+        player.volume.value = -28; // Ajusta el volumen (en decibelios)
         player.fadeIn = 0.1; // Efecto de entrada suave
         player.fadeOut = 0.5; // Efecto de salida suave
 
@@ -37,7 +37,7 @@ const Footer = () => {
         audioPlayerRef.current = null;
       }
       if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current); // Limpia el intervalo de progreso
+        clearInterval(progressIntervalRef.current); // CORREGIDO: Usar progressIntervalRef.current
       }
     };
   }, []); // El array vacío asegura que este efecto se ejecute solo una vez
@@ -56,54 +56,58 @@ const Footer = () => {
         console.log('Audio context resumed on click for playback.');
       }
 
-      if (isPlaying) {
-        // Si está reproduciendo, pausar
-        audioPlayerRef.current.stop(); // Detiene la reproducción
-        clearInterval(progressIntervalRef.current); // Detiene la actualización del progreso
-        progressIntervalRef.current = null;
-      } else {
-        // Si está pausado o detenido, iniciar reproducción
-        // Reinicia el progreso a 0 si la canción ya había terminado
-        const startOffset = audioPlayerRef.current.currentTime >= audioPlayerRef.current.buffer.duration ? 0 : audioPlayerRef.current.currentTime;
-        audioPlayerRef.current.start(0, startOffset); // Inicia desde el progreso actual o 0
+      // Usa la actualización funcional para setIsPlaying para asegurar el estado más reciente
+      setIsPlaying(prevIsPlaying => {
+        if (prevIsPlaying) {
+          // Si está reproduciendo, pausar
+          audioPlayerRef.current.stop(); // Detiene la reproducción
+          clearInterval(progressIntervalRef.current); // CORREGIDO: Usar progressIntervalRef.current
+          progressIntervalRef.current = null;
+        } else {
+          // Si está pausado o detenido, iniciar reproducción
+          // Reinicia el progreso a 0 si la canción ya había terminado
+          const startOffset = audioPlayerRef.current.currentTime >= audioPlayerRef.current.buffer.duration ? 0 : audioPlayerRef.current.currentTime;
+          audioPlayerRef.current.start(0, startOffset); // Inicia desde el progreso actual o 0
 
-        // Inicia la actualización del progreso cada 100ms
-        progressIntervalRef.current = setInterval(() => {
-          if (audioPlayerRef.current && audioPlayerRef.current.state === "started") {
-            const currentTime = audioPlayerRef.current.currentTime;
-            // Si la canción termina, detener la reproducción y resetear
-            if (currentTime >= audioPlayerRef.current.buffer.duration) {
-              audioPlayerRef.current.stop();
-              clearInterval(progressIntervalRef.current);
-              progressIntervalRef.current = null;
-              setIsPlaying(false);
+          // Inicia la actualización del progreso cada 100ms
+          progressIntervalRef.current = setInterval(() => {
+            if (audioPlayerRef.current && audioPlayerRef.current.state === "started") {
+              const currentTime = audioPlayerRef.current.currentTime;
+              // Si la canción termina, detener la reproducción y resetear
+              if (currentTime >= audioPlayerRef.current.buffer.duration) {
+                audioPlayerRef.current.stop();
+                clearInterval(progressIntervalRef.current); // CORREGIDO: Usar progressIntervalRef.current
+                progressIntervalRef.current = null;
+                setIsPlaying(false); // Establecer a falso cuando el audio termina
+              }
             }
-          }
-        }, 100);
-      }
-      setIsPlaying(!isPlaying); // Alterna el estado de reproducción
+          }, 100);
+        }
+        return !prevIsPlaying; // Alterna el estado
+      });
 
     } catch (error) {
       console.error("Error al reproducir o pausar el audio:", error);
     }
-  }, [isPlaying, isLoaded]); // Dependencias para useCallback
+  }, [isLoaded]); // Eliminado isPlaying de las dependencias porque usamos la actualización funcional
 
   return (
     // Contenedor principal del pie de página.
     <footer className="py-8 px-4 md:px-8 lg:px-16 text-white text-center relative z-10
-                       bg-[url('/images/final.png')] bg-cover bg-center bg-no-repeat">
+                       bg-[url('/images/fondo2.png')] bg-cover bg-center bg-no-repeat">
       {/* Contenedor para la imagen del Going Merry */}
       {/* h-72 para dar espacio a la animación vertical */}
-      <div className="w-full text-center mb-2 relative h-72 flex items-end justify-center">
+      {/* CAMBIO CLAVE: Añadido max-w-xs y mx-auto al contenedor para centrarlo y limitar su ancho */}
+      <div className="w-full text-center mb-2 relative h-72 flex items-end justify-center max-w-xs mx-auto">
         <img
           src="/images/goingmerry.jpg" // Asegúrate de que esta ruta sea correcta
           alt="Going Merry"
           // Posicionamiento absoluto, centrado y animación condicional
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-auto max-w-xs object-contain opacity-80 cursor-pointer
+          // CAMBIO CLAVE: Eliminado max-w-xs del img y añadido w-full para que ocupe el 100% del contenedor
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-auto object-contain opacity-80 cursor-pointer
                       ${isPlaying ? 'animate-merry-sway' : 'animate-merry-float-idle'}`} // Animación condicional
           onClick={handleMerryClick}
         />
-        {/* La barra de duración del audio ha sido eliminada */}
       </div>
 
       {/* Texto de copyright o información del pie de página */}
@@ -129,27 +133,6 @@ const Footer = () => {
         }
         .animate-merry-float-idle {
           animation: merry-float-idle 3s ease-in-out infinite alternate; /* Animación suave de flotar */
-        }
-
-        /* Estilos para el slider de progreso (si se reintroduce) */
-        input[type="range"]::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          background: #FFD700; /* Dorado */
-          cursor: pointer;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        }
-
-        input[type="range"]::-moz-range-thumb {
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          background: #FFD700; /* Dorado */
-          cursor: pointer;
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
         `}
       </style>
