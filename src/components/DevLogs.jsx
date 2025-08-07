@@ -100,8 +100,6 @@ const DevBlogCard = ({ blog }) => {
 
   return (
     <div 
-      // CAMBIOS CLAVE: min-h-[550px] para altura mínima consistente
-      // flex-grow para que la tarjeta ocupe el espacio disponible en la cuadrícula
       className="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center
                  border-4 border-black transform transition-transform duration-200 hover:scale-105
                  min-h-[550px] flex-grow"
@@ -116,9 +114,7 @@ const DevBlogCard = ({ blog }) => {
       </div>
 
       {/* Descripción y enlace al video */}
-      {/* CAMBIO CLAVE: Cambiado el título a "Bitaroca" */}
       <h3 className="text-2xl font-metal-mania text-primary-gold mb-2">Bitaroca</h3>
-      {/* CAMBIO CLAVE: flex-grow para que el párrafo de descripción ocupe el espacio restante */}
       <p className="text-lg leading-relaxed text-white mb-4 flex-grow">
         {blog.description}
         {blog.videoLink && (
@@ -154,7 +150,7 @@ const DevBlogCard = ({ blog }) => {
   );
 };
 
-const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
+const DevLogs = () => {
   // Datos de ejemplo para los 6 blogs con nombres de audio asociados a los personajes de la imagen
   const devBlogData = [
     { 
@@ -173,34 +169,34 @@ const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
       gifName: 'proyecto2.gif', 
       audioName: 'zoro.mp3' 
     },
-    // CAMBIO CLAVE: Contenido del blog 4 movido al id 3
+    // CAMBIO CLAVE: Sanji al 3er lugar
     { 
       id: 3, 
-      imageUrl: '/images/blog4.png', 
-      description: 'Página web enfocada en rutinas de gimnasio donde para entrar se necesita iniciar sesión. Incluye explicación de funcionalidad y código.', 
-      videoLink: '#', 
-      gifName: 'proyecto4.gif', 
-      audioName: 'franky.mp3' 
-    },
-    // CAMBIO CLAVE: Contenido del blog 3 movido al id 4
-    { 
-      id: 4, 
       imageUrl: '/images/blog3.png', 
       description: 'Página web de práctica donde se estaba aprendiendo a hacer un login, mantener y cerrar sesión. Incluye explicación de funcionalidad y código.', 
       videoLink: '#', 
       gifName: 'proyecto3.gif', 
       audioName: 'sanji.mp3' 
     },
-    // CAMBIO CLAVE: Nueva descripción para el blog 5
+    // CAMBIO CLAVE: Usopp al 4to lugar
     { 
-      id: 5, 
+      id: 4, // El ID se mantiene, pero el contenido es de Usopp
       imageUrl: '/images/blog5.png', 
       description: 'Integración de estilos a la mi página con React/VSC', 
       videoLink: '#', 
       gifName: 'proyecto5.gif', 
       audioName: 'usopp.mp3' 
     },
-    // CAMBIO CLAVE: Nueva descripción para el blog 6
+    // CAMBIO CLAVE: Franky al 5to lugar
+    { 
+      id: 5, // El ID se mantiene, pero el contenido es de Franky
+      imageUrl: '/images/blog4.png', 
+      description: 'Página web enfocada en rutinas de gimnasio donde para entrar se necesita iniciar sesión. Incluye explicación de funcionalidad y código.', 
+      videoLink: '#', 
+      gifName: 'proyecto4.gif', 
+      audioName: 'franky.mp3' 
+    },
+    // Robin al 6to lugar
     { 
       id: 6, 
       imageUrl: '/images/blog6.png', 
@@ -213,9 +209,9 @@ const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
 
   return (
     <section 
-      id="devlogs" // ID de la sección a devlogs
+      id="devlogs" 
       className="py-20 px-4 md:px-8 lg:px-16 text-white relative z-10 
-                 bg-[url('/images/fondo4.png')] bg-cover bg-center bg-no-repeat" // Fondo cambiado a fondo4.png
+                 bg-[url('/images/fondo4.png')] bg-cover bg-center bg-no-repeat" 
     >
 
       {/* Separador superior */}
@@ -223,13 +219,12 @@ const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
 
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-pirata-one text-white text-center mb-12
-                       bg-black border-4 border-white p-4 rounded-lg"> {/* Texto blanco, fondo negro, borde blanco */}
-          DevLogs {/* Texto del título a DevLogs */}
+                       bg-black border-4 border-white p-4 rounded-lg">
+          DevLogs
         </h2>
 
         {/* Contenedor de la cuadrícula de blogs */}
-        {/* Asegura que los elementos de la cuadrícula tengan la misma altura */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"> {/* items-stretch para igualar alturas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {devBlogData.map(blog => (
             <DevBlogCard key={blog.id} blog={blog} />
           ))}
@@ -262,4 +257,4 @@ const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
   );
 };
 
-export default DevLogs; // Exporta DevLogs
+export default DevLogs;

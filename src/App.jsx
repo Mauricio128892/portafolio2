@@ -15,6 +15,8 @@ function App() {
   const [isAnyModalOpen, setIsAnyModalOpen] = useState(false);
   // Nuevo estado para controlar la visibilidad de la pantalla de carga
   const [showLoadingScreen, setShowLoadingScreen] = useState(true);
+  // Nuevo estado para controlar la animación de desvanecimiento de la pantalla de carga
+  const [fadeLoadingScreen, setFadeLoadingScreen] = useState(false);
 
   // useEffect para manejar la pantalla de carga
   useEffect(() => {
@@ -31,7 +33,11 @@ function App() {
 
   // Manejador de clic para la pantalla de carga
   const handleLoadingScreenClick = () => {
-    setShowLoadingScreen(false);
+    setFadeLoadingScreen(true); // Activa la animación de desvanecimiento
+    // Oculta la pantalla de carga completamente después de que la animación termine (500ms)
+    setTimeout(() => {
+      setShowLoadingScreen(false);
+    }, 500); // La duración de la transición de opacidad en Tailwind es 500ms por defecto
   };
 
   return (
@@ -43,13 +49,14 @@ function App() {
       {/* Pantalla de carga condicional */}
       {showLoadingScreen && (
         <div
-          className="fixed inset-0 bg-black flex flex-col items-center justify-center text-white text-center z-50 p-4 cursor-pointer" // Añadido cursor-pointer
+          className={`fixed inset-0 bg-black flex flex-col items-center justify-center text-white text-center z-50 p-4 cursor-pointer
+                      transition-opacity duration-500 ease-out ${fadeLoadingScreen ? 'opacity-0' : 'opacity-100'}`} // CAMBIO CLAVE: Animación de desvanecimiento
           onClick={handleLoadingScreenClick} // Añadido el manejador de clic
         >
           <h1 className="text-4xl md:text-5xl font-pirata-one mb-4 animate-pulse">¡Bienvenido!</h1> {/* CAMBIO CLAVE: Eliminado "Nakama" */}
           <p className="text-lg md:text-xl font-montserrat">
             La mayoría de los elementos interactivos de este portafolio, incluyendo los GIFs,
-            se pueden **interactuar** con solo presionarlos.
+            se pueden **interactuar** con un clic. ¡Explora y diviértete!
           </p>
           <p className="text-sm mt-8 animate-pulse">Haz clic en cualquier lugar para continuar...</p> {/* Mensaje para guiar al usuario */}
         </div>
