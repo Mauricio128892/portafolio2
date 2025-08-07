@@ -16,7 +16,6 @@ const ProjectModal = ({ project, onClose }) => {
       {/* Contenedor del modal */}
       {/* bg-gray-800 p-8 rounded-lg shadow-lg: Estilos de la caja del modal. */}
       {/* max-w-3xl w-full relative: Ancho máximo y responsividad. */}
-<<<<<<< HEAD
       {/* CAMBIO CLAVE: border-4 border-white para un borde blanco */}
       {/* animate-modal-open: Aplica la animación de apertura. */}
       {/* overflow-y-auto: Habilita el scroll vertical cuando el contenido es demasiado grande. */}
@@ -25,28 +24,14 @@ const ProjectModal = ({ project, onClose }) => {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-white transition-colors"
-=======
-      {/* border-4 border-amber-500: Borde dorado. */}
-      {/* animate-modal-open: Aplica la animación de apertura. */}
-      {/* overflow-y-auto: Habilita el scroll vertical cuando el contenido es demasiado grande. */}
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-3xl w-full relative border-4 border-amber-500 animate-modal-open overflow-y-auto max-h-[95vh]">
-        {/* Botón de cerrar */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-amber-500 transition-colors"
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
         >
           &times;
         </button>
 
         {/* Título del proyecto */}
-<<<<<<< HEAD
         {/* CAMBIO CLAVE: text-white para el color del título */}
         {/* CAMBIO CLAVE: border-b-2 border-white para la línea blanca */}
         <h2 className="text-4xl font-pirata-one text-white text-center mb-6 border-b-2 border-white pb-2">
-=======
-        <h2 className="text-4xl font-pirata-one text-amber-500 text-center mb-6 border-b-2 border-amber-700 pb-2">
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
           {project.title}
         </h2>
 
@@ -69,11 +54,7 @@ const ProjectModal = ({ project, onClose }) => {
           ))}
         </div>
 
-<<<<<<< HEAD
         {/* Botón para "Ir a este Proyecto!" */}
-=======
-        {/* Botón para "Zarpar a este Proyecto!" */}
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
         {project.link && (
           <div className="text-center">
             <a
@@ -82,11 +63,7 @@ const ProjectModal = ({ project, onClose }) => {
               rel="noopener noreferrer"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 transform hover:scale-105"
             >
-<<<<<<< HEAD
               ¡Ir a este Proyecto!
-=======
-              ¡Zarpar a este Proyecto!
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
             </a>
           </div>
         )}

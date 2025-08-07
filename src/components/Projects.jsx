@@ -1,30 +1,19 @@
 // src/components/Projects.jsx
-<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react'; // Importa useRef
 import ProjectModal from './ProjectModal'; // Asegúrate de que este componente exista
 import ProjectChest from './ProjectChest'; // Asegúrate de que este componente exista
 import * as Tone from 'tone'; // Importa Tone.js
 
-=======
-import React, { useState, useEffect } from 'react';
-import ProjectModal from './ProjectModal'; // Asegúrate de que este componente exista
-import ProjectChest from './ProjectChest'; // Asegúrate de que este componente exista
-
-// Recibe onModalOpen y onModalClose como props
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
 const Projects = ({ onModalOpen, onModalClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
-<<<<<<< HEAD
   const garpAudioRef = useRef(null); // Referencia para el reproductor de audio de Garp
   const [isGarpAudioLoaded, setIsGarpAudioLoaded] = useState(false); // Estado para saber si el audio de Garp está cargado
   // Eliminado: isGarpAnimating ya no es necesario para la animación del GIF
   const [showGarpBubble, setShowGarpBubble] = useState(false); // Nuevo estado para controlar la visibilidad de la burbuja de texto
 
   // Datos de los proyectos
-=======
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
   const projectsData = [
     {
       id: 1,
@@ -44,7 +33,6 @@ const Projects = ({ onModalOpen, onModalClose }) => {
       id: 3,
       title: 'Sistema de Gestión de Recursos Humanos',
       description: 'Una aplicación web de recursos humanos que permite el ingreso mediante una cuenta de Google. Facilita la adición de trabajadores, sus datos y roles, incluye una función de filtrado de búsqueda y una sección dedicada al perfil de usuario, con opción de cerrar sesión.',
-<<<<<<< HEAD
       link: 'https://rh2.netlify.app/',
       images: ['/images/foto20.png', '/images/foto21.png', '/images/foto22.png', '/images/foto23.png']
     },
@@ -79,22 +67,11 @@ const Projects = ({ onModalOpen, onModalClose }) => {
     };
   }, []);
 
-=======
-      link: 'https://rh2.netlify.app/', // Link corregido
-      images: ['/images/foto20.png', '/images/foto21.png', '/images/foto22.png', '/images/foto23.png'] // Imágenes corregidas
-    },
-  ];
-
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
   const openModal = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
     if (onModalOpen) {
-<<<<<<< HEAD
       onModalOpen();
-=======
-      onModalOpen(); // Llama a la función de App para indicar que el modal está abierto
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
     }
   };
 
@@ -102,7 +79,6 @@ const Projects = ({ onModalOpen, onModalClose }) => {
     setIsModalOpen(false);
     setSelectedProject(null);
     if (onModalClose) {
-<<<<<<< HEAD
       onModalClose();
     }
   };
@@ -129,14 +105,6 @@ const Projects = ({ onModalOpen, onModalClose }) => {
       }
     }
   };
-=======
-      onModalClose(); // Llama a la función de App para indicar que el modal está cerrado
-    }
-  };
-
-  // No es necesario un useEffect para limpiar la clase del body aquí,
-  // ya que App.jsx gestiona el estado centralmente.
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
 
   return (
     <section id="proyectos" className="relative bg-black min-h-screen flex flex-col justify-center items-center py-16">
@@ -145,7 +113,6 @@ const Projects = ({ onModalOpen, onModalClose }) => {
 
       {/* Solo se mantiene el contenido principal, sin animaciones ni videos */}
       <div className="relative z-10 container mx-auto flex flex-col lg:flex-row items-center justify-between p-4">
-<<<<<<< HEAD
         {/* Left Side: Garp GIF (AHORA CLICABLE CON BURBUJA DE TEXTO) */}
         <div className="w-full lg:w-1/2 flex justify-center items-center mb-8 lg:mb-0">
           <div className="relative">
@@ -165,31 +132,15 @@ const Projects = ({ onModalOpen, onModalClose }) => {
                 HA HA HA
               </div>
             )}
-=======
-        {/* Left Side: Garp GIF (ESTÁTICO) */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center mb-8 lg:mb-0">
-          <div className="relative">
-            {/* La imagen de Garp, ahora sin el onClick y sin clases de animación */}
-            <img
-              src="/images/2.gif" // Usando el GIF de Garp (llamado 2.gif)
-              alt="Garp" // Alt text simple, ya no "showing his power"
-              className="max-h-screen object-contain relative z-30" // Clases para posicionamiento y tamaño
-            />
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
           </div>
         </div>
 
         {/* Right Side: Projects Container */}
         <div className="w-full lg:w-1/2 flex flex-col items-center space-y-8">
-<<<<<<< HEAD
           <h2 className="text-5xl md:text-6xl font-pirata-one text-primary-gold text-center mb-12
                        bg-[url('/images/fondo44.png')] bg-cover bg-no-repeat bg-center p-4 rounded-lg
                        border-4 border-black"
               style={{ WebkitTextStroke: '1px black' }}>
-=======
-          {/* Título de la sección Proyectos. Asegurado text-primary-gold */}
-          <h2 className="text-5xl md:text-6xl font-pirata-one text-primary-gold text-center mb-12">
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
             Proyectos
           </h2>
           {projectsData.map((project) => (
@@ -205,7 +156,6 @@ const Projects = ({ onModalOpen, onModalClose }) => {
       {isModalOpen && selectedProject && (
         <ProjectModal project={selectedProject} onClose={closeModal} />
       )}
-<<<<<<< HEAD
 
       {/* Estilos CSS para la animación de la burbuja de texto */}
       <style>
@@ -235,8 +185,6 @@ const Projects = ({ onModalOpen, onModalClose }) => {
         }
         `}
       </style>
-=======
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
     </section>
   );
 };

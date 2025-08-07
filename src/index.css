@@ -33,7 +33,6 @@ body {
 
 /* Clase personalizada para el separador de madera */
 .bg-wood-separator {
-<<<<<<< HEAD
   background-image: url('/images/fondo0.png'); /* CAMBIO CLAVE: Usando fondo0.png */
   background-repeat: repeat-x; /* Vuelve a repetir la imagen horizontalmente */
   background-size: auto 100%; /* Ajusta la altura de la imagen al 100% del div, y el ancho automáticamente */
@@ -41,13 +40,6 @@ body {
 }
 
 
-=======
-  background-image: url('/images/madera.png'); /* Asegúrate de que esta ruta sea correcta */
-  background-repeat: repeat-x; /* Vuelve a repetir la imagen horizontalmente */
-  background-size: auto 100%; /* Ajusta la altura de la imagen al 100% del div, y el ancho automáticamente */
-}
-
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
 @keyframes floatUp {
   0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }

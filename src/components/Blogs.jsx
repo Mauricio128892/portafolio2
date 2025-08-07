@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // src/components/DevLogs.jsx
-=======
-// src/components/DevBlogs.jsx
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
 import React, { useRef, useEffect, useState } from 'react';
 import * as Tone from 'tone'; // Importa Tone.js para el sonido
 
@@ -104,7 +100,6 @@ const DevBlogCard = ({ blog }) => {
 
   return (
     <div 
-<<<<<<< HEAD
       // CAMBIOS CLAVE: min-h-[550px] para altura mínima consistente
       // flex-grow para que la tarjeta ocupe el espacio disponible en la cuadrícula
       className="bg-gray-800 p-6 rounded-2xl shadow-lg flex flex-col items-center text-center
@@ -117,29 +112,13 @@ const DevBlogCard = ({ blog }) => {
           src={blog.imageUrl || "https://placehold.co/400x200/333/fff?text=Aqui+va+la+foto"}
           alt={`Imagen del Blog ${blog.id}`}
           className="w-full h-full object-cover"
-=======
-      className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center"
-    >
-      {/* Espacio para la imagen del blog */}
-      <div className="w-full h-48 bg-gray-700 rounded-md mb-4 flex items-center justify-center overflow-hidden">
-        {/* Placeholder para la imagen del blog. Reemplaza 'aqui-va-la-foto.png' con tu imagen real */}
-        <img
-          src={blog.imageUrl || "https://placehold.co/400x200/333/fff?text=Aqui+va+la+foto"}
-          alt={`Imagen del Blog ${blog.id}`}
-          className="w-full h-full object-cover" // object-cover para que la imagen llene el espacio
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
         />
       </div>
 
       {/* Descripción y enlace al video */}
-<<<<<<< HEAD
       <h3 className="text-2xl font-metal-mania text-white mb-2">Blog {blog.id}</h3>
       {/* CAMBIO CLAVE: flex-grow para que el párrafo de descripción ocupe el espacio restante */}
       <p className="text-lg leading-relaxed text-white mb-4 flex-grow">
-=======
-      <h3 className="text-2xl font-metal-mania text-primary-gold mb-2">Blog {blog.id}</h3> {/* Cambiado a text-primary-gold */}
-      <p className="text-lg leading-relaxed text-white mb-4">
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
         {blog.description}
         {blog.videoLink && (
           <a
@@ -147,11 +126,7 @@ const DevBlogCard = ({ blog }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline ml-2"
-<<<<<<< HEAD
             onClick={(e) => e.stopPropagation()}
-=======
-            onClick={(e) => e.stopPropagation()} // Evita que el clic en el enlace active el audio del GIF
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
           >
             Ver Video
           </a>
@@ -161,7 +136,6 @@ const DevBlogCard = ({ blog }) => {
       {/* GIF del proyecto - Ahora es clicable y tiene animación */}
       <div 
         className={`w-48 h-48 bg-gray-700 rounded-md flex items-center justify-center overflow-hidden cursor-pointer transform transition-transform duration-200 hover:scale-105 ${isActive ? 'animate-gif-pulse-glow' : ''}`}
-<<<<<<< HEAD
         onClick={handleGifClick}
         style={{ '--glow-color': glowColor }}
       >
@@ -169,16 +143,6 @@ const DevBlogCard = ({ blog }) => {
           src={`/images/${blog.gifName}`}
           alt={`GIF del Proyecto ${blog.id}`}
           className="w-full h-full object-contain"
-=======
-        onClick={handleGifClick} // Manejador de clic para el GIF
-        style={{ '--glow-color': glowColor }} // Pasa el color de brillo como variable CSS
-      >
-        {/* GIF del proyecto asociado. Asegúrate de que las rutas sean correctas. */}
-        <img
-          src={`/images/${blog.gifName}`} // Ruta dinámica para los GIFs
-          alt={`GIF del Proyecto ${blog.id}`}
-          className="w-full h-full object-contain" // object-contain para que el GIF se ajuste sin recortarse
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
         />
       </div>
 
@@ -189,7 +153,6 @@ const DevBlogCard = ({ blog }) => {
   );
 };
 
-<<<<<<< HEAD
 const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
   // Datos de ejemplo para los 6 blogs con nombres de audio asociados a los personajes de la imagen
   const devBlogData = [
@@ -227,26 +190,11 @@ const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
     },
     { id: 5, imageUrl: '', description: 'Descripción del blog 5 y su contenido principal.', videoLink: '#', gifName: 'proyecto5.gif', audioName: 'usopp.mp3' },
     { id: 6, imageUrl: '', description: 'Descripción del blog 6 y su contenido principal.', videoLink: '#', gifName: 'proyecto6.gif', audioName: 'robin.mp3' },
-=======
-const DevBlogs = () => {
-  // Datos de ejemplo para los 6 blogs con nombres de audio asociados a los personajes de la imagen
-  const devBlogData = [
-    { id: 1, imageUrl: '', description: 'Descripción del blog 1 y su contenido principal.', videoLink: '#', gifName: 'proyecto1.gif', audioName: 'luffy.mp3' },
-    { id: 2, imageUrl: '', description: 'Descripción del blog 2 y su contenido principal.', videoLink: '#', gifName: 'proyecto2.gif', audioName: 'zoro.mp3' },
-    { id: 3, imageUrl: '', description: 'Descripción del blog 3 y su contenido principal.', videoLink: '#', gifName: 'proyecto3.gif', audioName: 'sanji.mp3' },
-    { id: 4, imageUrl: '', description: 'Descripción del blog 4 y su contenido principal.', videoLink: '#', gifName: 'proyecto4.gif', audioName: 'franky.mp3' },
-    { id: 5, imageUrl: '', description: 'Descripción del blog 5 y su contenido principal.', videoLink: '#', gifName: 'proyecto5.gif', audioName: 'usopp.mp3' },
-    { id: 6, imageUrl: '', description: 'Descripción del blog 6 y su contenido principal.', videoLink: '#', gifName: 'proyecto6.gif', audioName: 'robin.mp3' }, // Corregido a robin.mp3
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
   ];
 
   return (
     <section 
-<<<<<<< HEAD
       id="devlogs" // ID de la sección a devlogs
-=======
-      id="devblogs" 
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
       className="py-20 px-4 md:px-8 lg:px-16 text-white relative z-10 
                  bg-[url('/images/fondo4.png')] bg-cover bg-center bg-no-repeat" // Fondo cambiado a fondo4.png
     >
@@ -254,7 +202,6 @@ const DevBlogs = () => {
       {/* Separador superior */}
       <div className="w-full h-8 bg-wood-separator absolute top-0 left-0"></div>
 
-<<<<<<< HEAD
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-pirata-one text-white text-center mb-12
                        bg-black border-4 border-white p-4 rounded-lg"> {/* Texto blanco, fondo negro, borde blanco */}
@@ -264,19 +211,6 @@ const DevBlogs = () => {
         {/* Contenedor de la cuadrícula de blogs */}
         {/* Asegura que los elementos de la cuadrícula tengan la misma altura */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"> {/* items-stretch para igualar alturas */}
-=======
-      <div className="max-w-6xl mx-auto"> {/* Aumentado el max-w para dar más espacio a 3 columnas */}
-        <h2 className="text-5xl md:text-6xl font-pirata-one text-primary-gold text-center mb-12"> {/* Cambiado a text-primary-gold */}
-          DevBlogs
-        </h2>
-
-        {/* Contenedor de la cuadrícula de blogs */}
-        {/* grid grid-cols-1: Una columna en móvil */}
-        {/* md:grid-cols-2: Dos columnas en pantallas medianas */}
-        {/* lg:grid-cols-3: Tres columnas en pantallas grandes (desktop) */}
-        {/* gap-8: Espacio entre las tarjetas de blog */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
           {devBlogData.map(blog => (
             <DevBlogCard key={blog.id} blog={blog} />
           ))}
@@ -292,28 +226,16 @@ const DevBlogs = () => {
         @keyframes gif-pulse-glow {
           0%, 100% {
             transform: scale(1);
-<<<<<<< HEAD
             box-shadow: 0 0 0px rgba(var(--glow-color-rgb, 255, 255, 0), 0);
           }
           50% {
             transform: scale(1.1);
             box-shadow: 0 0 20px 5px var(--glow-color);
-=======
-            box-shadow: 0 0 0px rgba(var(--glow-color-rgb, 255, 255, 0), 0); /* Usa la variable CSS */
-          }
-          50% {
-            transform: scale(1.1); /* Ligeramente más grande */
-            box-shadow: 0 0 20px 5px var(--glow-color); /* Usa la variable CSS */
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
           }
         }
 
         .animate-gif-pulse-glow {
-<<<<<<< HEAD
           animation: gif-pulse-glow 1s ease-in-out infinite alternate;
-=======
-          animation: gif-pulse-glow 1s ease-in-out infinite alternate; /* Animación de pulso */
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
         }
         `}
       </style>
@@ -321,8 +243,4 @@ const DevBlogs = () => {
   );
 };
 
-<<<<<<< HEAD
 export default DevLogs; // Exporta DevLogs
-=======
-export default DevBlogs;
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa

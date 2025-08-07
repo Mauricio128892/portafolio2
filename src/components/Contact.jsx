@@ -54,11 +54,7 @@ const Contact = () => {
             {/* Tarjeta de Email */}
             <a
               href="mailto:0078828@red.unid.mx" // Correo actualizado
-<<<<<<< HEAD
               className="flex flex-col items-center p-4 rounded-3xl bg-white bg-opacity-90 shadow-lg border-4 border-black {/* CAMBIO CLAVE: Borde negro */}
-=======
-              className="flex flex-col items-center p-4 rounded-3xl bg-white bg-opacity-90 shadow-lg border-4 border-transparent
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
                          hover:border-primary-gold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-gold cursor-pointer z-20
                          w-full md:w-40 h-40 justify-center" // Ancho y alto fijos para la tarjeta
             >
@@ -71,11 +67,7 @@ const Contact = () => {
               href="https://github.com/Mauricio128892" // GitHub actualizado
               target="_blank"
               rel="noopener noreferrer"
-<<<<<<< HEAD
               className="flex flex-col items-center p-4 rounded-3xl bg-white bg-opacity-90 shadow-lg border-4 border-black {/* CAMBIO CLAVE: Borde negro */}
-=======
-              className="flex flex-col items-center p-4 rounded-3xl bg-white bg-opacity-90 shadow-lg border-4 border-transparent
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
                          hover:border-primary-gold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-gold cursor-pointer z-20
                          w-full md:w-40 h-40 justify-center" // Ancho y alto fijos para la tarjeta
             >
@@ -88,11 +80,7 @@ const Contact = () => {
               href="https://www.linkedin.com/in/mauricio-valladares-velueta-0950622a5/" // LinkedIn actualizado
               target="_blank"
               rel="noopener noreferrer"
-<<<<<<< HEAD
               className="flex flex-col items-center p-4 rounded-3xl bg-white bg-opacity-90 shadow-lg border-4 border-black {/* CAMBIO CLAVE: Borde negro */}
-=======
-              className="flex flex-col items-center p-4 rounded-3xl bg-white bg-opacity-90 shadow-lg border-4 border-transparent
->>>>>>> bd33d8bea4a27e44c70add77657abb1ce151a8aa
                          hover:border-primary-gold transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-gold cursor-pointer z-20
                          w-full md:w-40 h-40 justify-center" // Ancho y alto fijos para la tarjeta
             >
