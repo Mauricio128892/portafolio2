@@ -111,7 +111,7 @@ const Footer = () => {
       </div>
 
       {/* Texto de copyright o información del pie de página */}
-      <p className="text-white">&copy; {new Date().getFullYear()} Tu Nombre. Todos los derechos reservados.</p>
+      <p className="text-white">&copy; {new Date().getFullYear()} Mauricio Noe Valladares Velueta.</p>
       
       {/* Estilos CSS para las animaciones */}
       <style>

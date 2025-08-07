@@ -79,7 +79,7 @@ const AboutMe = () => {
               <h3 className="text-3xl font-metal-mania text-white mb-4">Formación</h3>
               {/* Párrafo a blanco con tu información */}
               <p className="text-lg leading-relaxed text-white">
-                Mi nombre es Mauricio Valladares Velueta, tengo 20 años y actualmente estudio Ingeniería de Software y Sistemas Computacionales en la UNID de Campeche, México.
+                Mi nombre es Mauricio Noe Valladares Velueta, tengo 20 años y actualmente estudio Ingeniería de Software y Sistemas Computacionales en la UNID de Campeche, México.
               </p>
             </div>
 

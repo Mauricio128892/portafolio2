@@ -38,7 +38,7 @@ const DevBlogCard = ({ blog }) => {
       try {
         // Crea un nuevo Tone.Player para cada tarjeta
         const player = new Tone.Player(`/audio/${blog.audioName}`).toDestination();
-        player.volume.value = -15; // Ajusta el volumen si es necesario
+        player.volume.value = -10; // Ajusta el volumen si es necesario
         player.fadeIn = 0.1;
         player.fadeOut = 0.5;
 
@@ -116,7 +116,8 @@ const DevBlogCard = ({ blog }) => {
       </div>
 
       {/* Descripción y enlace al video */}
-      <h3 className="text-2xl font-metal-mania text-white mb-2">Blog {blog.id}</h3>
+      {/* CAMBIO CLAVE: Cambiado el título a "Bitaroca" */}
+      <h3 className="text-2xl font-metal-mania text-primary-gold mb-2">Bitaroca</h3>
       {/* CAMBIO CLAVE: flex-grow para que el párrafo de descripción ocupe el espacio restante */}
       <p className="text-lg leading-relaxed text-white mb-4 flex-grow">
         {blog.description}
