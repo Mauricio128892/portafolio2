@@ -173,24 +173,42 @@ const DevLogs = () => { // Renombrado de DevBlogs a DevLogs
       gifName: 'proyecto2.gif', 
       audioName: 'zoro.mp3' 
     },
+    // CAMBIO CLAVE: Contenido del blog 4 movido al id 3
     { 
       id: 3, 
-      imageUrl: '/images/blog3.png', 
-      description: 'Página web de práctica donde se estaba aprendiendo a hacer un login, mantener y cerrar sesión. Incluye explicación de funcionalidad y código.', 
-      videoLink: '#', 
-      gifName: 'proyecto3.gif', 
-      audioName: 'sanji.mp3' 
-    },
-    { 
-      id: 4, 
       imageUrl: '/images/blog4.png', 
       description: 'Página web enfocada en rutinas de gimnasio donde para entrar se necesita iniciar sesión. Incluye explicación de funcionalidad y código.', 
       videoLink: '#', 
       gifName: 'proyecto4.gif', 
       audioName: 'franky.mp3' 
     },
-    { id: 5, imageUrl: '', description: 'Descripción del blog 5 y su contenido principal.', videoLink: '#', gifName: 'proyecto5.gif', audioName: 'usopp.mp3' },
-    { id: 6, imageUrl: '', description: 'Descripción del blog 6 y su contenido principal.', videoLink: '#', gifName: 'proyecto6.gif', audioName: 'robin.mp3' },
+    // CAMBIO CLAVE: Contenido del blog 3 movido al id 4
+    { 
+      id: 4, 
+      imageUrl: '/images/blog3.png', 
+      description: 'Página web de práctica donde se estaba aprendiendo a hacer un login, mantener y cerrar sesión. Incluye explicación de funcionalidad y código.', 
+      videoLink: '#', 
+      gifName: 'proyecto3.gif', 
+      audioName: 'sanji.mp3' 
+    },
+    // CAMBIO CLAVE: Nueva descripción para el blog 5
+    { 
+      id: 5, 
+      imageUrl: '/images/blog5.png', 
+      description: 'Integración de estilos a la mi página con React/VSC', 
+      videoLink: '#', 
+      gifName: 'proyecto5.gif', 
+      audioName: 'usopp.mp3' 
+    },
+    // CAMBIO CLAVE: Nueva descripción para el blog 6
+    { 
+      id: 6, 
+      imageUrl: '/images/blog6.png', 
+      description: 'Configuración de entorno React/VSC y borrador de la página', 
+      videoLink: '#', 
+      gifName: 'proyecto6.gif', 
+      audioName: 'robin.mp3' 
+    },
   ];
 
   return (
