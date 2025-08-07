@@ -6,7 +6,7 @@ const AboutMe = () => {
   const sectionRef = useRef(null); // Referencia para la sección completa
   const luffyGifRef = useRef(null); // Nueva referencia para el GIF de Luffy
   const [luffyPowerAnimation, setLuffyPowerAnimation] = useState(''); // Estado para la animación de poder de Luffy
-  const [sectionShakeAnimation, setSectionShakeAnimation] = useState(''); // Estado para la animación de temblor de la sección
+  // Eliminado: const [sectionShakeAnimation, setSectionShakeAnimation] = useState(''); // Estado para la animación de temblor de la sección
   const [showAnimatedLuffy, setShowAnimatedLuffy] = useState(false); // Estado para controlar la visibilidad del Luffy animado
 
   useEffect(() => {
@@ -41,13 +41,13 @@ const AboutMe = () => {
       setLuffyPowerAnimation('animate-luffy-power-release');
       setShowAnimatedLuffy(true); // Muestra el Luffy animado
 
-      // Activa la animación de temblor de la sección
-      setSectionShakeAnimation('animate-section-tremble');
+      // Eliminado: Activa la animación de temblor de la sección
+      // setSectionShakeAnimation('animate-section-tremble');
 
       setTimeout(() => {
         setLuffyPowerAnimation('');
         setShowAnimatedLuffy(false); // Oculta el Luffy animado
-        setSectionShakeAnimation('');
+        // Eliminado: setSectionShakeAnimation('');
       }, 6000); // La duración de la animación de Luffy sigue siendo 6 segundos
     }
   }, []);
@@ -57,7 +57,8 @@ const AboutMe = () => {
       <section
         id="sobre-mi"
         ref={sectionRef}
-        className={`px-4 md:px-8 lg:px-16 pt-16 pb-16 bg-[url('/images/fondo2.png')] bg-cover bg-no-repeat bg-center relative z-10 overflow-hidden flex justify-center items-center ${sectionShakeAnimation}`}
+        // Eliminado: ${sectionShakeAnimation}
+        className={`px-4 md:px-8 lg:px-16 pt-16 pb-16 bg-[url('/images/fondo2.png')] bg-cover bg-no-repeat bg-center relative z-10 overflow-hidden flex justify-center items-center`}
       >
         {/* Separador superior - Usando bg-wood-separator */}
         <div className="w-full h-8 bg-wood-separator absolute top-0 left-0"></div>
@@ -191,22 +192,8 @@ const AboutMe = () => {
           animation: luffy-aura-effect 6s ease-out forwards;
         }
 
-        @keyframes section-tremble {
-          0% { transform: translate(0, 0); }
-          10% { transform: translate(-1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          20% { transform: translate(1px, 1px); }  /* CAMBIO CLAVE: Reducido a 1px */
-          30% { transform: translate(-1px, 1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          40% { transform: translate(1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          50% { transform: translate(-1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          60% { transform: translate(1px, 1px); }  /* CAMBIO CLAVE: Reducido a 1px */
-          70% { transform: translate(-1px, 1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          80% { transform: translate(1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          90% { transform: translate(-1px, -1px); } /* CAMBIO CLAVE: Reducido a 1px */
-          100% { transform: translate(0, 0); }
-        }
-        .animate-section-tremble {
-          animation: section-tremble 0.2s infinite; /* CAMBIO CLAVE: Duración de 0.2s */
-        }
+        /* Eliminado: @keyframes section-tremble */
+        /* Eliminado: .animate-section-tremble */
       `}</style>
     </div>
   );
