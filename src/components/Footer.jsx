@@ -37,7 +37,7 @@ const Footer = () => {
         audioPlayerRef.current = null;
       }
       if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current); // CORREGIDO: Usar progressIntervalRef.current
+        clearInterval(progressIntervalRef.current);
       }
     };
   }, []); // El array vacío asegura que este efecto se ejecute solo una vez
@@ -61,7 +61,7 @@ const Footer = () => {
         if (prevIsPlaying) {
           // Si está reproduciendo, pausar
           audioPlayerRef.current.stop(); // Detiene la reproducción
-          clearInterval(progressIntervalRef.current); // CORREGIDO: Usar progressIntervalRef.current
+          clearInterval(progressIntervalRef.current);
           progressIntervalRef.current = null;
         } else {
           // Si está pausado o detenido, iniciar reproducción
@@ -76,7 +76,7 @@ const Footer = () => {
               // Si la canción termina, detener la reproducción y resetear
               if (currentTime >= audioPlayerRef.current.buffer.duration) {
                 audioPlayerRef.current.stop();
-                clearInterval(progressIntervalRef.current); // CORREGIDO: Usar progressIntervalRef.current
+                clearInterval(progressIntervalRef.current);
                 progressIntervalRef.current = null;
                 setIsPlaying(false); // Establecer a falso cuando el audio termina
               }
@@ -89,7 +89,7 @@ const Footer = () => {
     } catch (error) {
       console.error("Error al reproducir o pausar el audio:", error);
     }
-  }, [isLoaded]); // Eliminado isPlaying de las dependencias porque usamos la actualización funcional
+  }, [isLoaded]);
 
   return (
     // Contenedor principal del pie de página.
@@ -97,14 +97,14 @@ const Footer = () => {
                        bg-[url('/images/fondo2.png')] bg-cover bg-center bg-no-repeat">
       {/* Contenedor para la imagen del Going Merry */}
       {/* h-72 para dar espacio a la animación vertical */}
-      {/* El div contenedor ya no tiene max-w-xs para que ocupe todo el ancho disponible */}
       <div className="w-full text-center mb-2 relative h-72 flex items-end justify-center">
         <img
           src="/images/goingmerry.jpg" // Asegúrate de que esta ruta sea correcta
           alt="Going Merry"
-          // CAMBIO CLAVE: Eliminado 'w-full' y añadido 'max-w-sm' para controlar el tamaño en móviles
-          // CAMBIO CLAVE: Añadido ml-[-2] para moverlo ligeramente más a la izquierda en móviles
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 max-w-sm h-auto object-contain opacity-80 cursor-pointer ml-[-2]
+          // CAMBIO CLAVE: Cambiado el posicionamiento para un mejor centrado en móviles
+          // left-0 right-0 mx-auto: Centra la imagen dentro de su contenedor con un max-width
+          // Eliminado -translate-x-1/2 y ml-[-2]
+          className={`absolute bottom-0 left-0 right-0 mx-auto max-w-sm h-auto object-contain opacity-80 cursor-pointer
                       ${isPlaying ? 'animate-merry-sway' : 'animate-merry-float-idle'}`} // Animación condicional
           onClick={handleMerryClick}
         />
@@ -118,9 +118,9 @@ const Footer = () => {
         {`
         /* Animación de "cabeceo" cuando la música está sonando */
         @keyframes merry-sway {
-          0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
-          25% { transform: translateX(calc(-50% - 15px)) translateY(-10px) rotate(-2deg); } /* Más movimiento y rotación */
-          75% { transform: translateX(calc(-50% + 15px)) translateY(10px) rotate(2deg); }  /* Más movimiento y rotación */
+          0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); } /* Cambiado a translateX(0) */
+          25% { transform: translateX(-15px) translateY(-10px) rotate(-2deg); } /* Movimiento lateral sin -50% */
+          75% { transform: translateX(15px) translateY(10px) rotate(2deg); }  /* Movimiento lateral sin -50% */
         }
         .animate-merry-sway {
           animation: merry-sway 2.5s ease-in-out infinite alternate; /* Más rápido (2.5s) */
@@ -128,8 +128,8 @@ const Footer = () => {
 
         /* Nueva animación de solo flotar arriba y abajo cuando la música no está activa */
         @keyframes merry-float-idle {
-          0%, 100% { transform: translateX(-50%) translateY(0); }
-          50% { transform: translateX(-50%) translateY(-10px); } /* Flota 10px hacia arriba */
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); } /* Flota 10px hacia arriba */
         }
         .animate-merry-float-idle {
           animation: merry-float-idle 3s ease-in-out infinite alternate; /* Animación suave de flotar */
