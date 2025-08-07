@@ -129,7 +129,7 @@ const AboutMe = () => {
                   ref={luffyGifRef} // Asigna la referencia al GIF de Luffy
                   src="/images/gear5.gif"
                   alt="Gear 5 GIF"
-                  className={`relative w-full max-h-[45.5vh] lg:max-h-[50vh] object-contain cursor-pointer z-10`}
+                  className={`relative max-w-md w-full max-h-[45.5vh] lg:max-h-[50vh] object-contain cursor-pointer z-10`}
                   onClick={handleLuffyClick}
                 />
               )}
@@ -143,7 +143,7 @@ const AboutMe = () => {
                     ref={luffyGifRef} // Asigna la referencia también al GIF animado
                     src="/images/gear5.gif"
                     alt="Gear 5 GIF Animation"
-                    className={`relative w-full max-h-[45.5vh] lg:max-h-[50vh] object-contain ${luffyPowerAnimation} z-20`}
+                    className={`relative max-w-md w-full max-h-[45.5vh] lg:max-h-[50vh] object-contain ${luffyPowerAnimation} z-20`}
                   />
                 </>
               )}
@@ -159,8 +159,8 @@ const AboutMe = () => {
       <style>{`
         @keyframes luffy-power-release {
           0% { filter: brightness(1); }
-          5% { filter: brightness(2.5) drop-shadow(0 0 35px yellow) drop-shadow(0 0 60px orange); }
-          95% { filter: brightness(2.5) drop-shadow(0 0 35px yellow) drop-shadow(0 0 60px orange); }
+          5% { filter: brightness(1.1); } /* Reducido el brillo y eliminado el drop-shadow */
+          95% { filter: brightness(1.1); } /* Reducido el brillo y eliminado el drop-shadow */
           100% { filter: brightness(1); }
         }
         .animate-luffy-power-release {
@@ -183,17 +183,14 @@ const AboutMe = () => {
 
         @keyframes luffy-aura-effect {
           0% { opacity: 0; transform: translateX(-50%) scale(0); }
-          5% { opacity: 0.5; transform: translateX(-50%) scale(1.5); }
-          50% { opacity: 0.7; transform: translateX(-50%) scale(2.0); }
-          95% { opacity: 0.5; transform: translateX(-50%) scale(1.5); }
+          5% { opacity: 0.2; transform: translateX(-50%) scale(1.0); } /* Reducida opacidad y escala */
+          50% { opacity: 0.3; transform: translateX(-50%) scale(1.2); } /* Reducida opacidad y escala */
+          95% { opacity: 0.2; transform: translateX(-50%) scale(1.0); } /* Reducida opacidad y escala */
           100% { opacity: 0; transform: translateX(-50%) scale(0); }
         }
         .animate-luffy-aura-release {
           animation: luffy-aura-effect 6s ease-out forwards;
         }
-
-        /* Eliminado: @keyframes section-tremble */
-        /* Eliminado: .animate-section-tremble */
       `}</style>
     </div>
   );

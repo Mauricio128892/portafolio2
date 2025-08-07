@@ -94,7 +94,7 @@ const Footer = () => {
   return (
     // Contenedor principal del pie de página.
     <footer className="py-8 px-4 md:px-8 lg:px-16 text-white text-center relative z-10
-                       bg-[url('/images/final.png')] bg-cover bg-center bg-no-repeat">
+                       bg-[url('/images/fondo2.png')] bg-cover bg-center bg-no-repeat">
       {/* Contenedor para la imagen del Going Merry */}
       {/* h-72 para dar espacio a la animación vertical */}
       {/* El div contenedor ya no tiene max-w-xs para que ocupe todo el ancho disponible */}
@@ -103,7 +103,8 @@ const Footer = () => {
           src="/images/goingmerry.jpg" // Asegúrate de que esta ruta sea correcta
           alt="Going Merry"
           // CAMBIO CLAVE: Eliminado 'w-full' y añadido 'max-w-sm' para controlar el tamaño en móviles
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 max-w-sm h-auto object-contain opacity-80 cursor-pointer
+          // CAMBIO CLAVE: Añadido ml-[-2] para moverlo ligeramente más a la izquierda en móviles
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 max-w-sm h-auto object-contain opacity-80 cursor-pointer ml-[-2]
                       ${isPlaying ? 'animate-merry-sway' : 'animate-merry-float-idle'}`} // Animación condicional
           onClick={handleMerryClick}
         />
